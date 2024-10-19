@@ -38,7 +38,7 @@ const Sidebar = () => {
 
   const fetchAllCustomers = async () => {
     try {
-      const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/allCustomers/name` || `${SERVER_URL}/api/allCustomers/name`);
+      const response = await fetch(`${SERVER_URL}/api/allCustomers/name`);
       
       if (!response.ok) {
         throw new Error('Error fetching customer names');
