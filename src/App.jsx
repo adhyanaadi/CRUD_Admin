@@ -1,39 +1,4 @@
 
-// import { BrowserRouter, Route, Routes } from 'react-router-dom';
-// import { createContext, useState } from 'react';
-// import Sidebar from './components/Sidebar';
-// import Dashboard from './pages/Dashboard';
-// import CustomerHealth from './pages/CustomerHealth';
-
-// const MyContext = createContext();
-
-// function App() {
-//   return (
-//     <>
-//       <BrowserRouter>
-//         <MyContext.Provider value={{}}>
-//           <section className='main flex'>
-//             <div className='sideBarWrapper w-[20%]'>
-//               <Sidebar />
-//             </div>
-
-//             <div className='content_Right w-[80%] px-3'>
-//               <Routes>
-//                 <Route path="/" exact={true} element={<Dashboard />} />
-//                 <Route path="/customer-health" exact={true} element={<CustomerHealth />} />
-//               </Routes>
-//             </div>
-//           </section>
-//         </MyContext.Provider>
-//       </BrowserRouter>
-//     </>
-//   );
-// }
-
-// export default App;
-
-
-
 import { BrowserRouter, Route, Routes, Navigate } from 'react-router-dom';
 import { createContext, useState } from 'react';
 import Sidebar from './components/Sidebar';

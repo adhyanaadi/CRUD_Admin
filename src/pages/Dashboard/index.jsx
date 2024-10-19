@@ -135,7 +135,7 @@ const Dashboard = () => {
     } else {
       // If not in edit mode, proceed with creating a new customer (POST request)
       try {
-        const response = await fetch('${CLIENT_URL}:${REACT_PORT}/api/customer', {
+        const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/customer`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
