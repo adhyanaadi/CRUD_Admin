@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';  // Use useNavigate for react-router-dom
-import { CLIENT_URL, REACT_PORT } from '../../config';
+import { CLIENT_URL, REACT_PORT, SERVER_URL } from '../../config';
 
 export default function Home() {
   const [username, setUsername] = useState('');
@@ -12,7 +12,7 @@ export default function Home() {
   function submitUser(event) {
     event.preventDefault();
 
-    const url = isRegistering ? `${CLIENT_URL}:${REACT_PORT}/api/auth/register` : `${CLIENT_URL}:${REACT_PORT}/api/auth`;
+    const url = isRegistering ? `${CLIENT_URL}:${REACT_PORT}/api/auth/register` || `${SERVER_URL}/api/auth/register` : `${CLIENT_URL}:${REACT_PORT}/api/auth` || `${SERVER_URL}/api/auth`;
     
     fetch(url, {
       method: 'POST',

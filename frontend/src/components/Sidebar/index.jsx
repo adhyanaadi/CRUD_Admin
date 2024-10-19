@@ -9,7 +9,7 @@ import { MdLogin } from "react-icons/md";
 import { FaUser } from "react-icons/fa";
 import { useHandleView } from '../../util/navigationUtil';
 import { useNavigate } from 'react-router-dom'; 
-import { CLIENT_URL, REACT_PORT } from '../../config';
+import { CLIENT_URL, REACT_PORT, SERVER_URL } from '../../config';
 
 const Sidebar = () => {
   const [activeTab, setActiveTab] = useState(0); // Track the active tab
@@ -38,7 +38,7 @@ const Sidebar = () => {
 
   const fetchAllCustomers = async () => {
     try {
-      const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/allCustomers/name`);
+      const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/allCustomers/name` || `${SERVER_URL}/api/allCustomers/name`);
       
       if (!response.ok) {
         throw new Error('Error fetching customer names');

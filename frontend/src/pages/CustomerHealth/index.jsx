@@ -12,7 +12,7 @@ import { MdDelete } from "react-icons/md";
 import { MdEdit } from "react-icons/md";
 import { IoMdArrowRoundBack } from "react-icons/io";  
 import { Bar } from "react-chartjs-2";
-import { CLIENT_URL, REACT_PORT } from '../../config';
+import { CLIENT_URL, REACT_PORT, SERVER_URL } from '../../config';
 
 import {
   Chart as chartjs,
@@ -90,7 +90,7 @@ chartjs.register(
     const customerRecordToDelete = allRecords[index]; // Find the customer by index
     try {
       // Make a DELETE request to your Express  
-      const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/customerHealth/${customerRecordToDelete.date}`, {
+      const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/customerHealth/${customerRecordToDelete.date}` || `${SERVER_URL}/api/customerHealth/${customerRecordToDelete.date}`, {
         method: 'DELETE',
       });
   
@@ -142,7 +142,7 @@ chartjs.register(
 
   const fetchAllRecords = async()=> {
     try {
-      const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/customerHealth/${email}`);
+      const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/customerHealth/${email}` || `${SERVER_URL}/api/customerHealth/${email}`);
       if (response.ok) {
         const data = await response.json();
         setallRecords(data);
@@ -158,7 +158,7 @@ chartjs.register(
   // Define the fetchCustomerData function outside useEffect
 const fetchCustomerData = async (email, setLoading, setCustomerData) => {
   try {
-    const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/customerGet/${email}`);
+    const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/customerGet/${email}` || `${SERVER_URL}/api/customerGet/${email}`);
     if (!response.ok) {
       throw new Error('Customer not found');
     }
@@ -198,7 +198,7 @@ useEffect(() => {
     // Send email if the entered steps meet or exceed the daily goal
     if (enteredSteps >= dailyGoal) {
       try {
-        const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/send-email`, {
+        const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/send-email` || `${SERVER_URL}/api/send-email`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -226,7 +226,7 @@ useEffect(() => {
     if (editMode) {
       // Update existing health data
       try {
-        const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/customerHealth/${editHealthDate}`, {
+        const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/customerHealth/${editHealthDate}` || `${SERVER_URL}/api/customerHealth/${editHealthDate}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -266,7 +266,7 @@ useEffect(() => {
     } else {
       // Create new health data
       try {
-        const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/customerHealth/${email}`, {
+        const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/customerHealth/${email}` || `${SERVER_URL}/api/customerHealth/${email}`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
