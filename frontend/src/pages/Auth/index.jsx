@@ -12,7 +12,8 @@ export default function Home() {
   function submitUser(event) {
     event.preventDefault();
 
-    const url = isRegistering ? `${CLIENT_URL}:${REACT_PORT}/api/auth/register` || `${SERVER_URL}/api/auth/register` : `${CLIENT_URL}:${REACT_PORT}/api/auth` || `${SERVER_URL}/api/auth`;
+    // const url = isRegistering ? `${CLIENT_URL}:${REACT_PORT}/api/auth/register` || `${SERVER_URL}/api/auth/register` : `${CLIENT_URL}:${REACT_PORT}/api/auth` || `${SERVER_URL}/api/auth`;
+    const url = isRegistering ? `${SERVER_URL}/api/auth/register` : `${SERVER_URL}/api/auth`;
     
     fetch(url, {
       method: 'POST',

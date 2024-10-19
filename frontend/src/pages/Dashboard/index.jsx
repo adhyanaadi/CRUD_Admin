@@ -30,7 +30,7 @@ const Dashboard = () => {
   
   const fetchAllCustomers = async()=>{
     try {
-      const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/allCustomers` || `${SERVER_URL}/api/allCustomers`);
+      const response = await fetch(`${SERVER_URL}/api/allCustomers`);
       if (response.ok) {
         const data = await response.json();
         setAllCustomers(data);
@@ -48,7 +48,7 @@ const Dashboard = () => {
 
   const fetchCustomerData = async (email) => {
     try {
-      const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/customerGet/${email}` || `${SERVER_URL}/api/customerGet/${email}`);
+      const response = await fetch(`${SERVER_URL}/api/customerGet/${email}`);
       if (response.ok) {
         const data = await response.json();
         // Append the fetched data to the allCustomers array
@@ -65,7 +65,7 @@ const Dashboard = () => {
     const customerToDelete = allCustomers[index]; // Find the customer by index
     try {
       // Make a DELETE request to your Express  
-      const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/customerDelete/${customerToDelete.email}` || `${SERVER_URL}/api/customerDelete/${customerToDelete.email}`, {
+      const response = await fetch(`${SERVER_URL}/api/customerDelete/${customerToDelete.email}`, {
         method: 'DELETE',
       });
   
@@ -101,7 +101,7 @@ const Dashboard = () => {
     if (editMode) {
       // If in edit mode, send a PUT request
       try {
-        const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/customerEdit/${editCustomerEmail}` || `${SERVER_URL}/api/customerEdit/${editCustomerEmail}`, {
+        const response = await fetch(`${SERVER_URL}/api/customerEdit/${editCustomerEmail}`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json',
@@ -135,7 +135,7 @@ const Dashboard = () => {
     } else {
       // If not in edit mode, proceed with creating a new customer (POST request)
       try {
-        const response = await fetch(`${CLIENT_URL}:${REACT_PORT}/api/customer` || `${SERVER_URL}/api/customer`, {
+        const response = await fetch(`${SERVER_URL}/api/customer`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
