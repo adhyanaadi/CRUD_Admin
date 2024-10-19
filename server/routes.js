@@ -9,9 +9,9 @@ require('dotenv').config();
 const port = process.env.PORT;
 const app = express();
 app.use(express.json());  // Apply middleware for parsing JSON
-// app.use(cors())
+app.use(cors());
 app.use(cors({
-  origin: ['https://crud-admin-front.vercel.app/'],
+  origin: ['https://crud-admin-front.vercel.app'],
   methods: ["POST", "GET", "DELETE", "PUT"],
   credentials: true
   }
