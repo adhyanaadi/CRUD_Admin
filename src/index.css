@@ -1,0 +1,83 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{background: #f1f1f1;}
+
+.main .sideBarWrapper{height: 100vh;}
+
+.main .sideBarWrapper .sidebar {height: 100vh; background-color: #fff ;}
+
+.main .sideBarWrapper .sidebar .sidebarTabs button ul{width: 100%; margin-bottom: 0px;}
+.main .sideBarWrapper .sidebar .sidebarTabs button ul li{list-style-type: none; width: 100%;}
+
+.main .sideBarWrapper .sidebar .sidebarTabs button{justify-content: flex-start !important; color: #222222; font-size: 16px; border-radius: 0; font-weight: bold; padding: 15px;}
+.main .sideBarWrapper .logoutbutton button{justify-content: flex-start !important; display: flex;align-items: center; color: #222222; font-size: 16px; border-radius: 0; font-weight: bold; padding: 15px;}
+
+.main .sideBarWrapper .sidebar .sidebarTabs button svg{font-size: 20px;}
+.main .sideBarWrapper .logoutbutton button svg{font-size: 20px;}
+.main .sideBarWrapper .sidebar .sidebarTabs button:hover{background: #f1f1f1 !important;}
+
+/* Arrow rotation concept, look later */
+/* .main .sideBarWrapper .sidebar .sidebarTabs button .arrow svg{font-size: 25px;}
+.main .sideBarWrapper .sidebar .sidebarTabs button .arrow {transition: all 0.3s;}
+.main .sideBarWrapper .sidebar .sidebarTabs button .arrow.rotate {transform: rotate(180deg);} */
+/* Below code is still not working */
+.main .sideBarWrapper .sidebar .sidebarTabs button::before{content: ''; width: 4px; height: 0%; position: absolute; top: 50%; left: -8px; background: #ff9279; border-top-left-radius: 5px; border-bottom-right-radius: 5px; transition: 0.3s; opacity: 0;}
+
+.main .sideBarWrapper .sidebar .sidebarTabs button:hover::before{top: 0px; height: 100%; opacity: 1;}
+
+.main .sideBarWrapper .sidebar .sidebarTabs button.active, .main .sideBarWrapper .sidebar .sidebarTabs button.active *{color: #ef985b;}
+
+/* Until this point */
+
+/* For opening and closing */
+.main .sideBarWrapper .sidebar .sidebarTabs li{position: relative;}
+/* .main .sideBarWrapper .sidebar .sidebarTabs li .submenu{position: relative; top: 100%; left: 0px; height: 0; opacity: 0; overflow: hidden; transition: all .4s;} */
+.main .sideBarWrapper .sidebar .sidebarTabs li.colapse  .submenu{height: auto; opacity: 1;}
+
+.main .sideBarWrapper .sidebar .sidebarTabs li .submenu button::before{display: none;}
+/* .main .sideBarWrapper .sidebar .sidebarTabs li .submenu button::after{content: ''; width: 10px; height: 10px; background: #ccc; border-radius: 100%; position: absolute; top: 37%; left: 10%;} */
+
+.main .sideBarWrapper .sidebar .sidebarTabs li .submenu button{padding: 4px 40px !important; font-weight: 500; justify-content: flex-start;}
+
+
+
+/* DASHBOARD PROPERTIES */
+.main .dashboardBoxWrapper {gap: 15px; width: 100%; margin-inline-start: auto; margin-top: 5vh;}
+.main .dashboardBoxWrapper .dashboardBox{width: 100%; height: 250px; background: #fe5e37; border-radius: 20px;}
+.main .dashboardBoxWrapper .dashboardBox:hover{background: #eb3c10;}
+
+/* Customer Components */
+.main .dashboardHealth {gap: 15px; width: 100%; margin-inline-start: auto; margin-top: 5vh;}
+.main .dashboardHealth .dashboarditem{width: 100%; height: 150px; background: #D32D41; border-radius: 15px; font-size:x-large;}
+.main .dashboardHealth .dashboarditem:hover{background: #a82433;}
+
+.main .dashboardBoxWrapper .dashboardBox .details{height: max-content;}
+
+.main .dashboardBoxWrapper .dashboardBox .submit button {color: #222222; font-size: 30px; border-radius: 10px; font-weight: bold; padding: 50px; height: 80px;}
+
+
+.main .CustomerdashboardBoxWrapper {gap: 15px; width: 100%; margin-inline-start: auto; margin-top: 5vh;}
+.main .CustomerdashboardBoxWrapper .CustomerdashboardBox{width: 100%; height: 100px; background: #D32D41; border-radius: 20px;}
+.main .CustomerdashboardBoxWrapper .CustomerdashboardBox:hover{background: #a82433;}
+
+/* CUSTOMER DASHBOARD PROPERTIES */
+.main .topitems .CustomerdashboardHealth {gap: 15px; margin-inline-start: auto; margin-top: 5vh;}
+.main .topitems .CustomerdashboardHealth .Customerdashboarditem{height: 380px; background: #fe5e37; border-radius: 15px; font-size:x-large;}
+.main .topitems .CustomerdashboardHealth .Customerdashboarditem:hover{background: #eb3c10;}
+.main .topitems .CustomerdashboardHealth .Customerdashboarditem button {color: #222222; font-size: 22px; border-radius: 10px; font-weight: bold;}
+
+/* TIMESERIES */
+.main .topitems .timeseries {gap: 15px; margin-inline-start: auto; margin-top: 5vh;}
+.main .topitems .timeseries{ height: 380px; background: #fce303; border-radius: 15px; font-size:x-large;}
+.main .topitems .timeseries:hover{background: #ead305;}
+
+/* CUSTOMER DATA */
+
+.main .customerData .customerDataHeading {background: #a82433;}
+
+
+
+
+
